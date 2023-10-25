@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+      font-family : 'Pretendard';
+      font-size : 14px;
+      background-color: rgb(255, 249, 240);
+    }
+      .clear {
+          clear: both;
+      }
+      #aside {
+          float: left;
+      }
+      #section {
+          float: left;
+      }
+      #header {
+          display: flex;
+          align-content: center;
+          background-color: rgb(255, 249, 240);
+      }
+      #footer {
+          color: dimgray;
+          text-align: center;
+          padding: 10px;
+      }
+      #navigation {
+          text-align: center;
+      }
+      a:link {
+          color: black;
+          text-decoration: none;
+      }
+      a:visited {
+          color:rgb(0, 0, 0);
+          text-decoration: none;
+      }
+      a:hover {
+          color:coral;
+          text-decoration: none;
+      }
+      a:active {
+          color: burlywood;
+          text-decoration: none;
+      } 
+    #navigation {
+      text-align: center;
+      font-size: 16px;
+    }
+    #navigation a:not(:last-child):after {
+    content: "|";
+    padding: 0 25px;
+    color: #000; 
+    pointer-events: none; 
+      }
+      
+      .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+
+.image-container img {
+    width: 100%; 
+}
+
+
+.image-text {
+    position: absolute; 
+    top: 25%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: rgb(255, 255, 255); 
+    padding: 5px; 
+    font-size: 32pt;
+    text-align: center;
+    width: 100%; 
+    margin: 0; 
+}
+        #brand {
+            font-size: 30pt;
+        }
+        #ro {
+            text-align: center;
+        }
+        #ㄷㄷ {
+            font-size: 14px;
+        }
+        table {
+    width: 70%; 
+    text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+tr, th, td {
+    border: 3px solid rgb(255, 249, 240); 
+    padding: 8px;
+    text-align: center;
+}
+
+.hover-zoom {
+  transition: transform 0.3s;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.2);
+}
+.overlay-text {
+    position: absolute;
+    top: 40%; 
+    left: 30%; 
+    transform: translate(-50%, -50%); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #fff; 
+    padding: 10px; 
+    opacity: 0;
+    transition: opacity 0.3s; 
+    font-size: 24px;
+}
+.image-container:hover .overlay-text {
+    opacity: 1; 
+    font-size: 16px;
+} 
+#wf {
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+    <div id="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo.png" width="150"></div>
+        
+        
+    <div id="navigation">
+        <ul>
+            <a href="index.html"><b>Home</b></a>
+            
+            <a href="Menu.html"><b>Menu</b></a>
+            
+            <a href="brand.html"><b>Brand</b></a>
+            
+            <a href="store.html"><b>Store</b></a>
+            
+            <a href="cookingclass.html"><b>Cooking class</b></a>
+            
+            <a href="sns.html"><b>SNS</b></a>
+        </ul>
+    </div>
+    <div class="image-container">
+        <img src="sns배경.png" width="1520" height="400" id="myImage">
+        <div class="image-text"><br><br><br>여정을 향한 고객님들의 솔직한 마음<br>
+        <p id="ㄷㄷ">항상 노력하는 여정이 되겠습니다.</p></div>
+    </div>
+    <div>
+        <table id="ro">
+            <tr> <br> <br> <br>
+                <td><b>블로그</b><br>
+                    <br>
+                    <p>일식 맛집 '여정'</p><br>
+                    10년 전부터 단골입니다. 사장님이 정말 친절하시고,<br> 
+                    갈 때마다 알아봐 주십니다. 맛도 맛이지만 기본 제공되는 <br>
+                    음식들부터 신선도가 정말 대단합니다. 블로거 인생 7년 찐 
+                    <br>맛집이라 저만 알고 싶었는데 공유합...</td>
+                    <td><b>인스타그램</b><br>
+                        <br>
+                        <p>진짜 존맛탱</p><br>
+                        제가 진짜 스시 킬러인데요 그냥 아무 생각없이<br> 
+                        들어가서 먹게 된 곳인데 진짜... 진짜 신선도가 레<br>
+                        전드예요 여기가 일본보다 더 맛남 ㅇㅇ 레알임 이거
+                        <br>진짜 맛잇으니까 꼭 가보셈 다들</td>
+                        <td><b>유튜브</b><br>
+                            <br>
+                            <p>200만 먹방 유튜버 여짱</p><br>
+                            제가 아무리 많은 스시 집 협찬을 받아 봐도<br> 
+                            다 여기보다 못하더라고요. 식감부터가 다르고<br>
+                            정말 추천 드립니다.</td></tr>
+                            <tr>
+                                <td><br><br><br><b>트위터</b><br>
+                                    <br>
+                                    <p>우리 오빠들 단골집이라는 여정</p><br>
+                                    우리 오빠들이 주에 한 번은 꼭 먹으러 간대서<br> 
+                                    나도 와봄. 일단 정말 맛있음. 정말 부드러움. <br>
+                                    나도 여기 단골 될 듯</td>
+                                    <td id="wf"><a href="https://www.instagram.com/hnk0v/"><b>여정의 sns 바로 가기•••</b></a></td>
+                            </tr>
+        </table>
+    </div><br><br><br>
+    <div class="clear"></div>
+    <div id="footer"> 
+        <p>Yeojoung 경기도 의왕시 오전동 48-7<br>
+           대표 : 여정연 ㅣ 사업자 등록 번호 : 1225-122-041225<br>
+           대표 번호 : 010-3006-2627 ㅣ 팩스 번호 : 1-234-5678<br>
+           <a href="https://www.instagram.com/hnk0v/">instagram</a> ㅣ <a href="https://youtube.com/@user-vy2pw8rv8d?si=Ug8pKryurbtdMq0-">Youtube</a> ㅣ <a href="https://blog.naver.com/3000lu">Blog</a> </p>
+    </div> 
+    </style>
+</head>
+<body>
+</html>
