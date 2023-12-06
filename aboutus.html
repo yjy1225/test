@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        background-color: black;
+        font-family: "pretendard";
+        font-size: 14px;
+        color: white
+    }
+    li {
+        list-style-type: none;
+    }
+    .clear {
+        clear: both;
+    }
+    header {
+        width: 1140px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        /*border: solid 1px red;*/
+    }
+    #logo {
+        float: left;
+        margin: 20px 0 0 20px;
+        /*border: solid 1px red;*/
+    }
+    #menus {
+        float: right;
+        /*border: solid 1px red;*/
+    }
+    #top_menu {
+        text-align: right;
+        margin-top: 20px;
+        /*border: solid 1px red;*/
+    }
+    #main_menu {
+        margin-top: 20px;
+        font-family: "pretendard";
+        font-size: 20px;
+        color: white;
+        /*border: solid 1px red;*/
+    }
+    #main_menu li {
+        display: inline;
+        margin-left: 80px;
+    }
+    #main_img {
+        width: 100%;
+        height: 870px;
+        background-image: url('img/about.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        margin: 20px;
+        color: black;
+        /*border: solid 1px red;*/
+    }
+    #main_img h3 {
+    position: absolute;
+    top: 400px;
+    left: 300px;
+    margin: 0;
+    padding-right: 350px;
+    font-size: 92px;
+}
+
+#main_img p {
+    position: absolute;
+    top: 500px; /* 조절이 필요할 수 있음 */
+    left: 300px;
+    margin: 20px;
+    padding-bottom: 200px;
+    padding-right: 350px;
+    font-size: 16px;
+}
+
+    #contents {
+        width: 1140px;
+        margin: 0 auto;
+    }
+    #sub_menu {
+        width: 234px;
+        float: left; 
+        margin-top: 25px; 
+        /* border: solid 1px red;*/
+        text-decoration: none;
+        color: black;
+    }
+    #sub_menu h3 { 
+        font-size: 18px; 
+        color: #5df0c0; 
+        padding: 12px; 
+        background-color: #516e7f;
+    }
+    #sub_menu li{ 
+        padding: 10px; 
+        border-bottom: dotted 1px #cccccc;
+        text-decoration: none;
+        color: black;
+    }
+    #main_img2 {
+        width: 100%;
+        height: 950px;
+        background-image: url('img/sub.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        margin-top: 20px;
+        /*border: solid 1px red;*/
+    }
+    #main_contents {
+        width: 100%;
+        margin:0;
+        background-image: url('img/sa.png');
+
+    }
+    #main_contents h3 {
+        font-size: 96px;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        margin: 20px;
+        padding-top: 60px;
+    }
+    #sub2 {
+        color: white;       
+        font-size: 24px;
+        text-align: center;
+        padding-bottom: 300px;
+    }
+    #main_contents p {
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        padding-bottom: 60px;
+    }
+    #main_contents #figure {
+        margin-top: 30px;
+        text-align: center;
+    }
+    #main_contents li {
+        padding: 5px;
+    }
+    footer {
+        width: 100%;
+        height: 150px;
+        /*border: solid 1px red;*/
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    #footer_box {
+        width: 1140px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    #footer_logo {
+        float: left;
+        margin: 50px 0 0 30px;
+    }
+    #address {
+        float: right;
+        margin: 50px 30px 0 0;
+        color: white;
+        /*border: solid 1px reds;*/
+    }
+    #a {
+        text-decoration: none;
+        color: white
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 120px 0 0 0;
+    }
+
+    th, td {
+      padding: 30px;
+      text-align: right;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #table2 {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 120px 0 0 0;
+      
+    }
+
+   #f {
+      padding: 30px;
+      text-align: left;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #main_contents2 {
+        width: 100%;
+        height: 790px;
+        margin:0;
+    
+    }
+    #main_contents2 h3 {
+        font-size: 96px;
+        color: rgb(255, 255, 255);
+        text-align: right;
+        margin: 20px;
+        padding-top: 60px;
+    }
+    #main_contents2 p {
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        text-align: right;
+        padding-bottom: 60px;
+    }
+    #top_menu a {
+    text-decoration: none; 
+    color: inherit;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease; 
+}
+
+#main_menu li a:hover {
+    color: #B5FF33; 
+}
+#main_menu li.current a {
+            color: #B5FF33; 
+            text-decoration: underline; 
+        }
+</style>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html"><img src="img/logo.png" width="200"></a>
+        </div>
+            <nav id="menus">
+                <div id="top_menu">
+                    <a href="top.html">
+                    장바구니
+                </a>
+                </div>
+            <ul id="main_menu">
+                <li class="current"><a id="a" href="aboutus.html">ABOUT US</a></li>
+                <li><a id="a" href="lookbook.html">TREND</a></li>
+                <li><a id="a" href="popup.html">POP-UP</a></li>
+                <li><a id="a" href="clothes.html">COLTHES</a></li>
+                <li><a id="a" href="styelist.html">STYLELIST</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main_img">
+        <h3>ABOUT MODE</h3>
+        <p>어떻게 입어야 옷을 잘 입는다는 소리를 듣는지 궁금한 여성을 위한 여성 전용 코디 어플
+        <br>3년 연속 코디 어플 사용률 1위 달성, 고객들의 호감적 리뷰 3만 개 달성!</p>
+
+    </section>
+    <section>
+        <div id="main_contents">
+            
+<table>
+    <tr>
+      <td><img src="img/2.png"></td>
+      <td>
+        <h3 id="u2">내일 뭐 입지?<br>고민은 이제 그만!</h3>
+    <p><br>캐주얼, 스트릿, 러블리, 빈티지 등 다양한 분위기를 저희 모드에서 보고 코디해 보세요.</p></td>
+    </tr>
+</table>
+<div id="main_contents2">
+<table id="table2">
+    <tr>
+      <td><h3 id="u2">오직 모드에서만<br>볼 수 있는 패션</h3>
+        <p><br>저희 모드는 트렌드에 뒤쳐지지 않을 패션을 연구하며 옷 제작 중에 있으니<br> 모드에서 모드만의 패션을 즐겨 보세요!</p></td>
+      <td id="f"><img src="img/3.png"></td>
+    </tr>
+  </table>
+</div>
+                </div>
+            
+        </div>
+    </section>
+
+    <div class="clear"></div><!--float 속성 해제-->
+    <footer>
+        <div id="footer_box">
+            <div id="footer_logo">
+                <img src="img/logo.png" width="100">
+            </div>
+            <ul id="address">
+                <li>서울시 강남구 삼성동 1234 우:123-1234</li>
+                <li>TEL:031-123-1234 EMAIL:email@dommain.com</li>
+                <li>MODE (C) 여정 ALL RIGHTS RESERVED</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

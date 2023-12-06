@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        background-color: black;
+        font-family: "pretendard";
+        font-size: 14px;
+        color: white;
+    }
+    li {
+        list-style-type: none;
+    }
+    .clear {
+        clear: both;
+    }
+    header {
+        width: 1140px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        /*border: solid 1px red;*/
+    }
+    #logo {
+        float: left;
+        margin: 20px 0 0 20px;
+        /*border: solid 1px red;*/
+    }
+    #menus {
+        float: right;
+        /*border: solid 1px red;*/
+    }
+    #menus2 {
+        float: left;
+        display: flex;
+        justify-content: left;
+        margin: 25px 0 0 0;
+        text-align: left;
+    margin-right: auto;
+        /*border: solid 1px red;*/
+    }
+    #top_menu {
+        text-align: right;
+        margin-top: 20px;
+        /*border: solid 1px red;*/
+    }
+    #main_menu {
+        margin-top: 20px;
+        font-family: "pretendard";
+        font-size: 20px;
+        color: white;
+        /*border: solid 1px red;*/
+        
+    }
+    #main_menu2 {
+    list-style-type: none;
+    padding: 20px; 
+    display: flex; 
+    font-size: 18px;
+    float: left;
+}
+
+#main_menu2 li {
+    margin-right: 80px; 
+    text-align: left;
+}
+
+#main_menu2 a {
+    text-decoration: none; 
+   
+}
+#main_menu2 li:hover a {
+            color: #B5FF33;
+        }
+        #main_menu2 .current-page a {
+            color: #B5FF33;
+        }
+
+        #main_menu2 .visited a {
+            color: rgb(99, 99, 99);
+        }
+
+    #main_menu li {
+        display: inline;
+        margin-left: 80px;
+    }
+    #main_img {
+        width: 100%;
+        height: 116px;
+        background-image: url('img/bac3.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        margin-top: 20px;
+        display: flex;
+        /*border: solid 1px red;*/
+    }
+    #contents {
+        width: 1140px;
+        margin: 0 auto;
+    }
+    #sub_menu {
+        width: 234px;
+        float: left; 
+        margin-top: 25px; 
+        /* border: solid 1px red;*/
+        text-decoration: none;
+        color: black;
+    }
+    #sub_menu h3 { 
+        font-size: 18px; 
+        color: #5df0c0; 
+        padding: 12px; 
+        background-color: #516e7f;
+    }
+    #sub_menu li{ 
+        padding: 10px; 
+        border-bottom: dotted 1px #cccccc;
+        text-decoration: none;
+        color: black;
+    }
+    #main_img2 {
+        width: 100%;
+        height: 950px;
+        background-image: url('img/sub.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        margin-top: 20px;
+        /*border: solid 1px red;*/
+    }
+    #main_contents {
+        width: 100%;
+        margin:0;
+        background-image: url('img/sub.png');
+    }
+    #main_contents2 {
+        width: 100%;
+        height: 790px;
+        margin:0;
+        background-image: url('img/sub2.png');
+    }
+    #main_contents h3 {
+        font-size: 38px;
+        color: black;
+        text-align: center;
+        margin: 20px;
+        padding-top: 60px;
+    }
+    #main_contents2 h3 {
+        font-size: 68px;
+        color: white;
+        text-align: center;
+        margin: 20px;
+        padding-top: 300px;
+    }
+    #sub2 {
+        color: white;       
+        font-size: 24px;
+        text-align: center;
+        padding-bottom: 300px;
+    }
+    #main_contents p {
+        font-size: 20px;
+        color: black;
+        text-align: center;
+        padding-bottom: 60px;
+    }
+    #main_contents #figure {
+        margin-top: 30px;
+        text-align: center;
+    }
+    #main_contents li {
+        padding: 5px;
+    }
+    footer {
+        width: 100%;
+        height: 150px;
+        /*border: solid 1px red;*/
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    #footer_box {
+        width: 1140px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    #footer_logo {
+        float: left;
+        margin: 50px 0 0 30px;
+    }
+    #address {
+        float: right;
+        margin: 50px 30px 0 0;
+        color: white;
+        /*border: solid 1px reds;*/
+    }
+    #a {
+        text-decoration: none;
+        color: white
+    }
+    #image_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 60px 0 0 30px;
+            padding: 20px;
+
+        }
+
+        .image_wrapper {
+            text-align: center;
+            margin-right: 20px; 
+        }
+
+        .image_wrapper img {
+            width: 603px; 
+            height: auto; 
+        }
+        .image_wrapper:hover img {
+    transform: scale(1.05); 
+}
+
+        .image_wrapper hr {
+            margin: 10px 0;
+            border: 1px solid #B5FF33;
+        }
+
+        .image_wrapper p {
+            font-size: 28px;
+            color: #ffffff; 
+        }
+        #e {
+            font-size: 20px;
+            padding: 20px;
+        }
+        #a1 {
+            text-decoration: none;
+        color:  #B5FF33;
+        }
+        #top_menu a {
+    text-decoration: none; 
+    color: inherit;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease; 
+}
+
+#main_menu li a:hover {
+    color: #B5FF33; 
+}
+#main_menu li.current a {
+            color: #B5FF33; 
+            text-decoration: underline; 
+        }
+</style>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html"><img src="img/logo.png" width="200"></a>
+        </div>
+            <nav id="menus">
+                <div id="top_menu">
+                    <a href="top.html">
+                    장바구니
+                </a>
+                </div>
+            
+            <ul id="main_menu">
+                <li><a id="a" href="aboutus.html">ABOUT US</a></li>
+                <li><a id="a" href="lookbook.html">TREND</a></li>
+                <li><a id="a" href="popup.html">POP-UP</a></li>
+                <li class="current"><a id="a" href="clothes.html">COLTHES</a></li>
+                <li><a id="a" href="styelist.html">STYLELIST</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main_img">
+        <nav id="menus2">
+
+            <ul id="main_menu2">
+                <li><a id="a1" href="clothes.html">Y2K</a></li>
+                <li><a id="a" href="minimal.html">MINIMAL</a></li>
+                <li><a id="a" href="loose.html">LOOSE-FIT</a></li>
+                <li><a id="a" href="fe.html">FEMININE</a></li>
+            </ul>
+        </nav>
+    </section>
+    
+    <div id="image_container">
+        <div class="image_wrapper">
+            <a href="sell.html">
+                <img src="img/88.png" width="603" alt="이미지 1">
+            </a>
+            <hr>
+            <p>2024 JUNGLE SHIRT</p>
+            <p id="e"><del>28,500 won</del>&nbsp; 24,500 won</p>
+        </div>
+        <div class="image_wrapper">
+            <a href="sell2.html">
+            <img src="img/99.png" width="603" alt="이미지 1">
+            </a>
+            <hr>
+            <p>Y2K layered DRESS</p>
+            <p id="e"><del>31,500 won</del>&nbsp;  25,500 won</p>
+        </div>
+        <div class="image_wrapper">
+            <img src="img/33.png" width="603" alt="이미지 1">
+            <hr>
+            <p>Y2K WHITE shirt</p>
+            <p id="e"><del>20,500 won</del>&nbsp;  18,500 won</p>
+        </div>
+        
+    </div>
+    <div id="image_container">
+        <div class="image_wrapper">
+            <img src="img/44.png" width="603" alt="이미지 1">
+            <hr>
+            <p>Y2K BLACK SHIRT</p>
+            <p id="e"><del>20,500 won</del>&nbsp; 18,500 won</p>
+        </div>
+        <div class="image_wrapper">
+            <img src="img/77.png" width="603" alt="이미지 1">
+            <hr>
+            <p>CHECK DRESS</p>
+            <p id="e"><del>26,500 won</del>&nbsp;  22,500 won</p>
+        </div>
+        <div class="image_wrapper">
+            <img src="img/66.png" width="603" alt="이미지 1">
+            <hr>
+            <p>WHITE KNIT</p>
+            <p id="e"><del>32,500 won</del>&nbsp;  29,500 won</p>
+        </div>
+        
+    </div>
+            
+        </div>
+    </section>
+
+    <div class="clear"></div><!--float 속성 해제-->
+    <footer>
+        <div id="footer_box">
+            <div id="footer_logo">
+                <img src="img/logo.png" width="100">
+            </div>
+            <ul id="address">
+                <li>서울시 강남구 삼성동 1234 우:123-1234</li>
+                <li>TEL:031-123-1234 EMAIL:email@dommain.com</li>
+                <li>MODE (C) 여정 ALL RIGHTS RESERVED</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
