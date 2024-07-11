@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            font-family: "pretendard";
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #000000;
+        }
+        header {
+            background-color: #090909; /* 헤더 배경색 */
+            color: #fff; /* 헤더 텍스트 색상 */
+            position: fixed; /* 헤더를 상단에 고정 */
+            width: 100%; /* 전체 너비 */
+            z-index: 1000; /* 다른 요소들보다 위에 */
+            padding: 10px 0; /* 상하 여백 */
+        }
+        #content {
+    margin-top: 70px; /* 헤더 높이만큼 마진 추가 */
+    padding: 20px;
+    height: 2000px; /* 임시 콘텐츠 높이 */
+    background-color: #f2f2f2;
+}
+        #main_menu {
+            font-family: "pretendard";
+            font-size: 20px;
+            color: white;
+        }
+        #a {
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+        }
+    
+        #main_menu li {
+            display: inline;
+            margin-left: 30px;
+        }
+        h1 {
+  position: relative;
+  text-align: center;
+  color: #353535;
+  font-size: 50px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
+  color: #676767;
+}
+.frame {
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+        span {
+            display: block;
+        }
+        span:not(.light) {
+            opacity: 0;
+            animation: flashText 1s ease-out alternate infinite;
+        }
+        span.light {
+            position: relative;
+            display: inline-block;
+            animation: flashText 2s ease-out alternate infinite;
+            text-shadow: 0 0 5px rgb(188, 210, 255), 
+                         0 0 10px rgba(248, 248, 248, 0.866), 
+                         0 0 15px rgba(221, 221, 221, 0.859), 
+                         0 0 20px rgba(222, 222, 222, 0.83), 
+                         0 0 25px rgba(225, 225, 225, 0.3);
+        }
+        @keyframes flashText {
+            to {
+                opacity: 0.15;
+            }
+        }
+        section {
+            width: 100%;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            background: #000000; 
+            position: relative;
+            overflow: hidden; 
+        }
+        .cursor {
+            opacity: 0;
+            position: fixed;
+            z-index: 1000;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            transition-property: background, transform, opacity;
+            transition-duration: .4s;
+            mix-blend-mode: difference;
+        }
+        .cursor.on {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        #dmd {
+            font-size: 32px;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 1px;
+        }
+        #Creative {
+            font-family: "pretendard";
+            color: #fff;
+            font-size: 75px;
+            text-align: center;
+        }
+        .section-text {
+            font-family: "pretendard";
+            color: #fff;
+            position: absolute;
+            top: 300px;
+            margin-top: 150px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        section:hover .section-text {
+            opacity: 1;
+        }
+        #main_img {
+            width: 100%;
+            height: 950px;
+            background-image: url('img/배경.png');
+            background-repeat: no-repeat;
+            background-position: top center;
+            margin-top: 200px;
+            
+        }
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+  opacity: 0.3;
+        }
+.text-container {
+    position: relative;
+    z-index: 1;
+    /* 기타 스타일링 속성들 */
+}
+#planning {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 100;
+}
+#e1 {
+    font-size: 55px;
+    color: #fff;
+}
+#e0 {
+    font-size: 16px;
+    color: #ffc400;
+    font-weight: 80;
+}
+
+#design {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 100;
+    text-align: right;
+}
+#f1 {
+    font-size: 55px;
+    text-align: right;
+    color: #fff;
+}
+#f0 {
+    font-size: 16px;
+    color: #ff8c00;
+    font-weight: 80;
+    text-align: right;
+}
+#PRO {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 100;
+}
+#H1 {
+    font-size: 55px;
+    color: #fff;
+}
+#H0 {
+    font-size: 16px;
+    color: #ff0000;
+    font-weight: 80;
+}
+@keyframes slideIn {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .photo-container {
+        display: flex; /* 이미지들을 가로로 배열하기 위해 flex 사용 */
+        overflow-x: hidden; /* 가로 넘침을 숨김 */
+        scroll-snap-type: x mandatory; /* 가로 스크롤 시각적 스냅 지원 */
+    }
+    
+    .photo-container img {
+        max-width: 15%;
+        height: auto;
+        margin-right: 10px;
+        opacity: 0; /* 초기에는 투명하게 설정 */
+        transition: transform 0.5s ease, opacity 0.5s ease; /* 변화에 애니메이션 적용 */
+        scroll-snap-align: start; /* 스크롤 시 이미지의 왼쪽 끝에 스냅 */
+    }
+    .photo-container2 {
+        display: flex; /* 이미지들을 가로로 배열하기 위해 flex 사용 */
+        overflow-x: hidden; /* 가로 넘침을 숨김 */
+        scroll-snap-type: x mandatory; /* 가로 스크롤 시각적 스냅 지원 */
+        justify-content: flex-end; 
+    }
+    .photo-container2 img {
+        max-width: 15%;
+        height: auto;
+        margin-right: 10px;
+        opacity: 0; /* 초기에는 투명하게 설정 */
+        transition: transform 0.5s ease, opacity 0.5s ease; /* 변화에 애니메이션 적용 */
+        scroll-snap-align: start; /* 스크롤 시 이미지의 왼쪽 끝에 스냅 */
+    }
+     td {
+        vertical-align: top;
+        padding-bottom: 20px; /* 텍스트와 사진 간격 조정 */
+    }    
+    #map-container {
+            width: 600px;
+            height: 600px;
+            border-radius: 50%; /* 원형 모양을 만듭니다. */
+            overflow: hidden; /* border-radius가 적용된 요소를 벗어난 부분을 숨깁니다. */
+            border: 2px solid #00ff00; /* 선택적으로 테두리를 추가할 수 있습니다. */
+            display: inline-block; /* 인라인 블록 요소로 설정 */
+            text-align: left; /* 내용을 좌측 정렬 */
+        }
+        #map {
+            font-size: 55px;
+            color: #fff;
+            text-align: center;
+        }
+        footer {
+        width: 100%;
+        height: 150px;
+        /*border: solid 1px red;*/
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: lighter;
+        font-size: 12px;
+        color: #fff;
+    }
+    #footer_box {
+        width: 1140px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    #address li {
+            list-style-type: none;
+            margin-bottom: 5px; /* 각 항목 사이의 간격 조정 */
+        }
+        
+        /* 각 항목의 기호를 추가하기 위해 가상 요소를 사용합니다. */
+        #address li:before {
+            content: none;
+        }
+        /* 움직이는 텍스트 */
+.animated-title {font-size:90px; 
+    font-family: Rosalia; 
+    font-weight:300; 
+    position: relative; 
+    width: 100%;
+    max-width:100%; 
+    height: 5%; 
+    padding:100px 0; 
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+color: #fff;}
+.animated-title .track {position: absolute; white-space: nowrap;will-change: transform;animation: marquee 60s linear infinite; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (hover: hover) and (min-width: 700px){
+.animated-title .content {-webkit-transform: translateY(calc(100% - 8rem)); transform: translateY(calc(100% - 8rem));}
+    }
+
+
+        #star {
+            position: relative;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        canvas {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+}
+.current a {
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #c5d7ff, 0 0 20px #c2cdff, 0 0 25px #5980ff, 0 0 30px #1576ff, 0 0 35px #006aff;
+            }
+            100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #c5d7ff, 0 0 40px #c5d7ff, 0 0 50px #5a81ff, 0 0 60px #1f7cff, 0 0 70px #006aff;
+            }
+        }
+        .btn-6 {
+  background: rgb(247,150,192);
+background: linear-gradient( rgb(247, 129, 61) 0%, rgb(255, 205, 25) 100%);
+  line-height: 0PX;
+   width: 200px;
+  padding: 0;
+  border: none;  
+  text-decoration: none;
+}
+.btn-6 a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+}
+.btn-6:before,
+.btn-6:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 1px;
+ box-shadow:
+   -1px -1px 20px 0px rgba(255,255,255,1),
+   -4px -4px 5px 0px rgba(255,255,255,1),
+   7px 7px 20px 0px rgba(0,0,0,.4),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+}
+.btn-6:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.btn-6:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.btn-6:hover{
+  background: transparent;
+  color: #4e4e4e;
+  box-shadow: none;
+}
+.btn-6:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn-6:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn-6 a:before,
+.btn-6 a:after {
+  position: absolute;
+  content: "";
+  box-shadow:
+   -1px -1px 20px 0px rgba(255,255,255,1),
+   -4px -4px 5px 0px rgba(255,255,255,1),
+   7px 7px 20px 0px rgba(0,0,0,.4),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+}
+.btn-6 a:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 0px;
+  transition: all 500ms ease;
+}
+.btn-6 a:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 0px;
+  transition: all 500ms ease;
+}
+.btn-6 a:hover:before {
+  width: 100%;
+}
+.btn-6 s:hover:after {
+  width: 100%;
+}
+#y {
+  text-align: center; /* 내부 요소들을 가로 방향으로 가운데 정렬 */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <ul id="main_menu">
+            <li ><a id="a" href="index.html">ABOUT</a></li>
+            <li><a id="a" href="kreambaby.html">KREAMBABY</a></li>
+            <li class="current"><a id="a" href="papa.html">PAPAHEROZ</a></li>
+        </ul>
+    </header>
+    
+    
+        <section id="content" class="video-section" style="background-color: #000000;">
+            <video autoplay muted loop id="video-bg">
+              <source src="파파영상.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+       <div id="y"><img src="img/파파.png" width="600"><br><a href="https://readymag.website/u1160685335/4815150/" class="custom-btn btn-6" id="myButton"><h3>PAPAHEROZ</h3></a>
+    </section>
+    
+        
+    <footer>
+        <div id="footer_box">
+            <ul id="address">
+                <li><br></li>
+                <li><br></li>
+                <li><br></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="cursor"></div>
+    <script>
+        var cursor = document.querySelector(".cursor");
+
+        // Event listener to move the custom cursor
+        window.addEventListener('mousemove', function(e) {
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + 'px';
+        });
+
+        // Event listeners for mouseover and mouseleave to toggle cursor visibility
+        var sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.addEventListener('mouseover', function() {
+                cursor.classList.add('on');
+            });
+            section.addEventListener('mouseleave', function() {
+                cursor.classList.remove('on');
+            });
+        });
+
+        // Function to update scroll marker animation based on scroll position
+        function updateScrollMarkerAnimation() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                var scrollMarker = section.querySelector('.scroll-marker');
+                if (isElementInViewport(section)) {
+                    var scrollPercentage = getScrollPercentage(section);
+                    var scrollAnimation = `scrollMarkerAnimation ${scrollPercentage}s linear`;
+                    scrollMarker.style.animation = scrollAnimation;
+                } else {
+                    scrollMarker.style.animation = 'none';
+                }
+            });
+        }
+
+        var video = document.getElementById('video-bg');
+        video.playbackRate = 0.5; // 비디오 재생 속도를 0.5배로 설정 (원래의 절반 속도)
+
+        document.addEventListener("DOMContentLoaded", function() {
+    var mainImg = document.getElementById('main_img');
+    var mainImgObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                mainImg.classList.add('show');
+            } else {
+                mainImg.classList.remove('show');
+            }
+        });
+    }, {
+        threshold: 0.5 // 요소의 반 이상이 화면 안에 들어올 때 작동
+    });
+
+    mainImgObserver.observe(mainImg);
+});
+
+ // 스크롤 이벤트 리스너 등록
+ window.addEventListener('scroll', function() {
+        // 모든 이미지를 반복하면서 현재 스크롤 위치에 따라 애니메이션을 적용
+        document.querySelectorAll('.photo-container img').forEach((img, index) => {
+            // 이미지의 스크롤 위치 계산
+            const imgTop = img.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            // 스크롤이 이미지의 중앙에 도달할 때까지 대기
+            if (imgTop < windowHeight / 2) {
+                img.style.opacity = "1";
+                img.style.transform = "translateX(0)";
+            } else {
+                img.style.opacity = "0";
+                img.style.transform = "translateX(-100%)";
+            }
+        });
+    });
+
+     // 스크롤 이벤트 리스너 등록
+ window.addEventListener('scroll', function() {
+        // 모든 이미지를 반복하면서 현재 스크롤 위치에 따라 애니메이션을 적용
+        document.querySelectorAll('.photo-container2 img').forEach((img, index) => {
+            // 이미지의 스크롤 위치 계산
+            const imgTop = img.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            // 스크롤이 이미지의 중앙에 도달할 때까지 대기
+            if (imgTop < windowHeight / 2) {
+                img.style.opacity = "1";
+                img.style.transform = "translateX(0)";
+            } else {
+                img.style.opacity = "0";
+                img.style.transform = "translateX(-100%)";
+            }
+        });
+    });
+    const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+class Star {
+    constructor(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.flickerInterval = Math.floor(Math.random() * 50) + 50;
+        this.flickerCounter = 0;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    update() {
+        this.flickerCounter++;
+
+        if (this.flickerCounter === this.flickerInterval) {
+            this.radius = getRandom(0.5, 2);
+            this.color = `rgba(255, 255, 255, ${getRandom(0.3, 1)})`;
+            this.flickerCounter = 0;
+            this.flickerInterval = Math.floor(Math.random() * 50) + 50;
+        }
+
+        this.draw();
+    }
+}
+
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function spawnStars() {
+    const x = getRandom(0, canvas.width);
+    const y = getRandom(0, canvas.height);
+    const radius = getRandom(0.5, 2);
+    const color = `rgba(255, 255, 255, ${getRandom(0.3, 1)})`;
+    return new Star(x, y, radius, color);
+}
+
+let stars;
+function init() {
+    stars = [];
+
+    for (let i = 0; i < 200; i++) {
+        stars.push(spawnStars());
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+        star.update();
+    });
+}
+
+init();
+animate();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            font-family: "pretendard";
+            margin: 0;
+            background-color: #000000;
+        }
+
+        header {
+            background-color: #090909; /* 헤더 배경색 */
+            color: #fff; /* 헤더 텍스트 색상 */
+            position: fixed; /* 헤더를 상단에 고정 */
+            width: 100%; /* 전체 너비 */
+            z-index: 1000; /* 다른 요소들보다 위에 */
+            padding: 10px 0; /* 상하 여백 */
+        }
+
+        #content {
+    margin-top: 70px; /* 헤더 높이만큼 마진 추가 */
+    padding: 20px;
+    height: 2000px; /* 임시 콘텐츠 높이 */
+    background-color: #f2f2f2;
+}
+        #main_menu {
+            font-family: "pretendard";
+            font-size: 20px;
+            color: white;
+        }
+        #a {
+            font-size: 14px;
+            text-decoration: none;
+            color: white;
+        }
+        #main_menu li {
+            display: inline;
+            margin-left: 30px;
+        }
+        #main_img {
+    position: relative;
+    width: 100%;
+    height: 300px; /* 높이는 적절히 조정하세요 */
+    background-image: url('your-image-url.jpg'); /* 원하는 이미지 URL로 변경 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* 초기에 숨김 상태로 설정 */
+    transition: opacity 0.5s ease; /* 페이드 효과를 위한 transition 설정 */
+     overflow: hidden;
+}
+
+#main_img.show {
+    opacity: 1; /* 보여지는 상태로 설정 */
+}
+        h2 {
+            font-family: "pretendard";
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 80px;
+            line-height: 1;
+            text-align: center;
+            margin: 0;
+            padding: 2rem;
+            justify-content: flex-start;
+            padding-top: 5px;
+            z-index: 2;
+        }
+    
+        section {
+            width: 100%;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            background: #000000; 
+            position: relative;
+            overflow: hidden; 
+        }
+        .cursor {
+            opacity: 0;
+            position: fixed;
+            z-index: 1000;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            transition-property: background, transform, opacity;
+            transition-duration: .4s;
+            mix-blend-mode: difference;
+        }
+        .cursor.on {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+      
+        #main_img {
+            width: 100%;
+            height: 950px;
+            background-image: url('img/아동복.png');
+            background-repeat: no-repeat;
+            background-position: top center;
+            margin-top: 200px;
+        }
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .video-section video {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.5; /* 동영상의 투명도 설정 */
+}
+
+        #video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+.text-container {
+    position: relative;
+    z-index: 1;
+    /* 기타 스타일링 속성들 */
+}
+
+        footer {
+        width: 100%;
+        height: 150px;
+        /*border: solid 1px red;*/
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: lighter;
+        font-size: 12px;
+        color: #fff;
+    }
+    #footer_box {
+        width: 1140px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    #address li {
+            list-style-type: none;
+            margin-bottom: 5px; /* 각 항목 사이의 간격 조정 */
+        }
+        
+        /* 각 항목의 기호를 추가하기 위해 가상 요소를 사용합니다. */
+        #address li:before {
+            content: none;
+        }
+        /* 움직이는 텍스트 */
+
+.current a {
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #c5d7ff, 0 0 20px #c2cdff, 0 0 25px #5980ff, 0 0 30px #1576ff, 0 0 35px #006aff;
+            }
+            100% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #c5d7ff, 0 0 40px #c5d7ff, 0 0 50px #5a81ff, 0 0 60px #1f7cff, 0 0 70px #006aff;
+            }
+        }
+        #kr {
+    display: flex;
+    justify-content: space-around; /* 이미지들을 양 옆에 붙이면서 간격 조정 */
+}
+
+#kr img {
+    margin: 0 10px; /* 이미지들 사이의 좌우 마진을 10px로 설정 */
+    max-width: 100%; /* 이미지가 부모 요소인 #kr의 너비를 초과하지 않도록 설정 */
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 2px; /* 선의 높이 */
+    overflow: hidden; /* 선이 넘치지 않도록 숨김 처리 */
+}
+
+.line {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #19C27D;
+    animation: draw-horizontal 2s linear infinite;
+}
+
+@keyframes draw-horizontal {
+    to {
+        width: 42%;
+    }
+}
+#star {
+            position: relative;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+        #A1 {
+        font-size: 28px;
+        font-weight: 200;
+        line-height: 1.2;
+        }
+
+        .textbox {
+    background-color: #ffffff; /* 배경색 */
+    padding: 50px; /* 안쪽 여백 */
+    padding-left: 70px;
+    border-radius: 50px; /* 라운드 효과 */
+    box-shadow: 1px 1px 10px 0px 3px 20px rgba(128, 204, 251, 0.9);
+    width: 760px; /* 너비 */
+    margin-left: 30px;
+    margin-top: -400px;
+    line-height: 1.5; /* 텍스트의 줄 간격 설정 */
+    transition: transform 0.3s ease; /* 확대/축소 전환 효과 */
+    z-index: 1; 
+}
+.textbox2 {
+    background-color: #ffffff; /* 배경색 */
+    padding: 50px; /* 안쪽 여백 */
+    padding-left: 70px;
+    border-radius: 50px; /* 라운드 효과 */
+    box-shadow: 1px 1px 10px0px 3px 20px rgba(128, 204, 251, 0.9); /* 그림자 효과 */
+    width: 760px; /* 너비 */
+    margin-left: 10px;
+    margin-top: 300px;
+    line-height: 1.5; /* 텍스트의 줄 간격 설정 */
+    transition: transform 0.3s ease; /* 확대/축소 전환 효과 */
+    z-index: 1; 
+}
+.textbox2:hover {
+    transform: scale(1.1); /* 호버 시 확대 */
+    box-shadow: 0px 3px 20px rgba(128, 204, 251, 0.9);
+    z-index: 2;
+}
+.textbox2 p {
+    font-size: 24px;
+    color: #000000;
+    margin: 0; /* 단락의 기본 마진을 제거하여 위아래 간격을 없앱니다 */
+     
+}
+.textbox:hover {
+    transform: scale(1.1); /* 호버 시 확대 */
+    box-shadow: 0px 3px 20px rgba(128, 204, 251, 0.9);
+    z-index: 2;
+}
+.textbox p {
+    font-size: 24px;
+    color: #000000;
+    margin: 0; /* 단락의 기본 마진을 제거하여 위아래 간격을 없앱니다 */
+}
+    #bass {
+        font-size: 38px;
+        font-family: applesdgothicneoeb00;
+        color: #19C27D;
+    }
+        .wrapper {
+  height: 100vh;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: center;
+  margin-top: 300px;
+}
+
+.typing-demo {
+  width: 28ch;
+  animation: typing 2s steps(28), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  color: white;
+  font-size: 48px;
+  text-align: center;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 28ch;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+h5 {
+margin-top: -450px;
+  color: white;
+  font-size: 90px;
+}
+h5 > span {
+  position: relative;
+}
+h5 > span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 5px;
+  background-color: #05c578;
+  transform: scale(0);
+  transition: transform 2s;
+}
+h5:hover > span::after {
+  transform: scale(1);
+}
+h1 {
+  font-family: 'bauhaus 93';
+  letter-spacing: 2px;
+  font-size:90px;
+}
+.head {
+  position:relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(60deg, #19C27D 0%, #19C27D 100%);
+  color:white;
+}
+.inner-head {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:30vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: rgb(73, 80, 102);
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+        #star {
+            position: relative;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        canvas {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+}
+#u2 {
+    color: rgb(255, 255, 255);
+    font-size: 48PX;
+    margin-top: -50PX;
+}
+#u2:hover {
+    color: #19C27D; /* Change to whatever color you want */
+}
+#u3 {
+    color: rgb(152, 152, 152);
+    font-size: 24PX;
+    font-weight: 100;
+    margin-top: -50PX;
+}
+.scroll-in-animation {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-in-animation.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+.image-container,
+.text-container {
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.image-container img {
+    transition: transform 0.3s ease;
+}
+
+.text-container #u2,
+.text-container #u3 {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Initial state */
+.image-container img,
+.text-container #u2,
+.text-container #u3 {
+    opacity: 0.3; /* Initial opacity */
+}
+
+/* Hover styles */
+.image-container:hover img {
+    transform: scale(1.1); /* Enlarge image on hover */
+    opacity: 1; /* Increase opacity on hover */
+}
+
+.text-container:hover #u2,
+.text-container:hover #u3 {
+    transform: scale(1.1); /* Enlarge text on hover */
+    opacity: 1; /* Increase opacity on hover */
+}
+
+.image-cell {
+    padding: 0;
+
+    vertical-align: top; /* 컨텐츠를 셀 상단에 정렬 */
+}
+#last {
+    margin-top: -85px;
+}
+#u4 {
+    color: #19C27D;
+    font-size: 48PX;
+    margin-top: 800PX;
+    margin-left: -1800px;
+    z-index: 2;
+}
+#u4:hover {
+    color: #18e090; /* Change to whatever color you want */
+}
+#u5 {
+    color: rgb(46, 46, 46);
+    font-size: 24PX;
+    font-weight: 100;
+    margin-top: -60PX;
+    margin-left: -1800px;
+    z-index: 2;
+}
+#ba {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 화면 전체 높이 */
+    background-image: url('img/배경2.png'); /* 배경 이미지 URL */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* 배경 이미지 영역을 넘어가는 부분은 숨김 */
+    z-index: 1;
+    opacity: 0; /* 처음에 숨김 */
+    animation: scroll-in 1s forwards;
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+}
+
+
+#ba img {
+    margin-right: 1300px; /* 이미지와 텍스트 사이의 간격 조정 */
+    transform: translateX(-20px); /* 이미지를 왼쪽으로 이동시키는 변형 */
+}
+.content {
+    position: relative;
+    z-index: 1; /* 콘텐츠를 배경 이미지 위에 위치시킴 */
+    padding: 100px 20px; /* 내부 여백 설정 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+#ba.show {
+    opacity: 1; /* 보이기 */
+}
+
+#ba.show #u4, 
+#ba.show #u5 {
+    opacity: 1; /* 보이기 */
+    transform: translateY(0); /* 이동 없음 */
+}
+
+/* 배경 이미지 스크롤 애니메이션 */
+@keyframes scroll-in {
+    from {
+        opacity: 0;
+        transform: translateY(-100px); /* 위에서 아래로 이동 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#mm img {
+    transition: transform 0.3s ease; /* 변환 효과를 부드럽게 설정 */
+}
+
+#mm img:hover {
+    transform: scale(1.2); /* 호버할 때 이미지를 1.2배 확대 */
+}
+
+#u6 {
+    color: rgb(255, 255, 255);
+    font-size: 48PX;
+    margin-top: -50PX;
+    margin-right: 40PX;
+    text-align: right;
+}
+#u6:hover {
+    color: #19C27D; /* Change to whatever color you want */
+}
+#u7 {
+    color: rgb(152, 152, 152);
+    font-size: 24PX;
+    font-weight: 100;
+    margin-top: -50PX;
+    margin-right: 40PX;
+    text-align: right;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <ul id="main_menu">
+            <li><a id="a" href="index.html">ABOUT</a></li>
+            <li class="current"><a id="a" href="kreambaby.html">KREAMBABY</a></li>
+            <li><a id="a" href="papa.html">PAPAHEROZ</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <div class="head">
+
+            <!--Content before waves-->
+            <div class="inner-head flex">
+            </svg>
+            <h1>KREAM BABY</h1>
+            </div>
+            
+            <!--Waves Container-->
+            <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 20 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="10" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="15" fill="#fff" />
+            </g>
+            </svg>
+            </div>
+            <!--Waves end-->
+            
+            </div>
+          
+    </section>
+   
+    <section class="video-section">
+        <video autoplay muted loop id="video-bg">
+            <source src="크림.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="star">
+            <h2>ABOUT 'KREAM'</h2>
+            <h2 id="A1">프리미엄 명품 한정판 거래 플랫폼으로 리셀러들과 <br> 패션에 관심 있는 사람들이라면 한 번쯤은  <br> 이용해 봤을만한 대중적인 거래 플랫폼</h2>
+        </div>
+    </section>
+
+    <section id="wh">
+        <canvas id="starCanvas"></canvas>
+        <div class="textbox">
+            <p id="bass">출산율 저하에도 아동복 시장 성장</p>
+            <p>계속된 아동복 시장의 성장으로 백화점 프리미엄 키즈 라인 입점 사례들 증가</p>
+        </div>
+        <div class="textbox2">
+            <p id="bass">중고&리셀 거래의 활성화</p>
+            <p>당연시 되어 버린 온라인 거래로 mz세대들 사이에서 중고&리셀 거래 대두</p>
+        </div>
+    </section>
+
+    <section id="main_img">
+        <div class="wrapper">
+            <div class="typing-demo">
+              그리하여 우리는 KREAM의 키즈 라인 버전, 
+            </div>
+            <diV class="current">
+            <h5><span>'KREAMBABY'를 기획</span></h5> 
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <table>
+            <tr>
+                <td class="image-cell"><div class="image-container"><img src="img/폰1.png" width="400"></div></td>
+            <td class="image-cell"><div class="image-container"><img src="img/폰2.png" width="400"></div></td>
+                <td>
+                    <h3 id="u2" class="scroll-in-animation">크림 베이비에서만 누릴 수 있는<BR>
+                        프리미엄 중고 아동복을 마주할 수 있는 공간!</h3>
+                    <p id="u3" class="scroll-in-animation"><br>크림 베이비에서만 보장되는
+                        고품질 상품을 저렴하게 만나보세요.</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="ba">
+           <div id="mm"  class="scroll-in-animation"> <img src="img/말풍.png" width="500"></div>
+        <table>
+            
+            <tr>
+                <td>
+                    <h3 id="u4" class="scroll-in-animation">아이 스타일 팁 공유와 더불어<br>
+                        스타일 공유를 통한 이벤트 응모까지</h3>
+                    <p id="u5" class="scroll-in-animation"><br>크림이 지정한 해시태그를 통해
+                        이벤트에 응모해 보세요!</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+   
+    <section>
+        <table>
+            <tr>
+                <td>
+                <h3 id="u6" class="scroll-in-animation">품질과 착용감 걱정 없는
+                    온라인 중고 거래!</h3>
+                <p id="u7" class="scroll-in-animation"><br>KREAM BABY는 한 번의 검수 끝에 나온 품질 등급을 제공하여<BR>
+                    중고 상품 품질 걱정을 덜어 드리며 빠르게 성장하고 재질에 <BR>민감한 아이들의 특성을 고려해 모델의 사이즈와 아동 사이즈 <BR>그리고 재질까지 알기 쉬운 단어로 제공해 드려요.</p>
+            </td>
+                <td class="image-cell"><div class="image-container"><img src="img/폰4.png" width="400"></div></td>
+            <td class="image-cell"><div class="image-container"><img src="img/폰5.png" width="400"></div></td>
+                
+            </tr>
+        </table>
+    </section>
+
+    <section class="video-section">
+        <video autoplay muted loop id="video-bg">
+            <source src="크베.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <h2 id="A1">중고 거래 시장의 프리미엄화, KREAM BABY</h2>
+        </div>
+    </section>
+    <footer>
+        <div id="footer_box">
+            <ul id="address">
+                <li><br></li>
+                <li><br></li>
+                <li><br></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="cursor"></div>
+    <script>
+        var cursor = document.querySelector(".cursor");
+
+        // Event listener to move the custom cursor
+        window.addEventListener('mousemove', function(e) {
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + 'px';
+        });
+
+        // Event listeners for mouseover and mouseleave to toggle cursor visibility
+        var sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.addEventListener('mouseover', function() {
+                cursor.classList.add('on');
+            });
+            section.addEventListener('mouseleave', function() {
+                cursor.classList.remove('on');
+            });
+        });
+
+        // Function to update scroll marker animation based on scroll position
+        function updateScrollMarkerAnimation() {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                var scrollMarker = section.querySelector('.scroll-marker');
+                if (isElementInViewport(section)) {
+                    var scrollPercentage = getScrollPercentage(section);
+                    var scrollAnimation = `scrollMarkerAnimation ${scrollPercentage}s linear`;
+                    scrollMarker.style.animation = scrollAnimation;
+                } else {
+                    scrollMarker.style.animation = 'none';
+                }
+            });
+        }
+
+    
+        document.addEventListener("DOMContentLoaded", function() {
+    var mainImg = document.getElementById('main_img');
+    var mainImgObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                mainImg.classList.add('show');
+            } else {
+                mainImg.classList.remove('show');
+            }
+        });
+    }, {
+        threshold: 0.5 // 요소의 반 이상이 화면 안에 들어올 때 작동
+    });
+
+    mainImgObserver.observe(mainImg);
+});
+
+ 
+    const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+class Star {
+    constructor(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.flickerInterval = Math.floor(Math.random() * 30) + 20; // Adjust flicker interval
+        this.flickerCounter = 0;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    update() {
+        this.flickerCounter++;
+
+        if (this.flickerCounter === this.flickerInterval) {
+            this.radius = getRandom(0.5, 2);
+            // Adjust color for slight yellowish tint
+            this.color = `rgba(255, 255, 200, ${getRandom(0.3, 1)})`;
+            this.flickerCounter = 0;
+            this.flickerInterval = Math.floor(Math.random() * 30) + 20; // Adjust flicker interval
+        }
+
+        this.draw();
+    }
+}
+
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function spawnStars() {
+    const x = getRandom(0, canvas.width);
+    const y = getRandom(0, canvas.height);
+    const radius = getRandom(0.5, 2);
+    // Adjust color for slight yellowish tint
+    const color = `rgba(255, 255, 200, ${getRandom(0.3, 1)})`;
+    return new Star(x, y, radius, color);
+}
+
+let stars;
+function init() {
+    stars = [];
+
+    for (let i = 0; i < 200; i++) {
+        stars.push(spawnStars());
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+        star.update();
+    });
+}
+
+init();
+animate();
+
+document.addEventListener('DOMContentLoaded', function() {
+    startAnimation();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.scroll-in-animation');
+    
+    function checkScroll() {
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight * 0.75) { // Adjust 0.75 to change when animation triggers
+                element.classList.add('show');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // Initial check on page load
+});
+// 초기에 한 번 애니메이션 트리거
+window.addEventListener('DOMContentLoaded', function() {
+    scrollAnimation();
+});
+
+// 스크롤 이벤트 리스너 추가
+window.addEventListener('scroll', function() {
+    scrollAnimation();
+});
+
+// 스크롤 애니메이션 함수
+function scrollAnimation() {
+    var section = document.getElementById('ba');
+    var rect = section.getBoundingClientRect();
+
+    // 화면에 섹션이 보일 때만 애니메이션 클래스 추가
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        section.classList.add('show');
+    } else {
+        section.classList.remove('show');
+    }
+}
+    </script>
+</body>
+</html>
+
